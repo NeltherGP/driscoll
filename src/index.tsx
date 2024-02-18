@@ -38,11 +38,11 @@ const root = ReactDOM.createRoot(
 );
 
 const App: React.FC = () => (
-  <React.StrictMode>
+  
     <div className="container">
       <RouterProvider router={router} />
     </div>
-  </React.StrictMode>
+ 
 );
 
 root.render(

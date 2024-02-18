@@ -7,7 +7,7 @@ export interface User{
    * The first name of the user.
    * @type {string}
    */
-    FirsName: String,
+    FirstName: String,
     /**
     * The last name of the user.
     * @type {string}
@@ -23,6 +23,6 @@ export interface User{
    * @type {string}
    * 
    */
-    CreatedDate: String
+    Created: String
 
 }
