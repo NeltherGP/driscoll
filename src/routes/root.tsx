@@ -15,7 +15,7 @@ const Root:React.FC =  ()=>{
                 <div className="collapse navbar-collapse" id="navigationBar">
                 <div className="navbar-nav">
                     <Link className="nav-link active" aria-current="page" to={`/users`}>Users</Link>
-                    <Link className="nav-link active" aria-current="page" to={`/news/1`}>News</Link>
+                    <Link className="nav-link active" aria-current="page" to={`/news/`}>News</Link>
                 </div>
                 </div>
             </div>

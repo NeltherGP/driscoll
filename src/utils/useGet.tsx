@@ -24,7 +24,7 @@ export const useGet = () => {
       setError(json.error);
     }
     if (response.ok) {
-      setData((prevData) => [...prevData, json]);
+      setData((prevData) => [json]);
     }
   };
 

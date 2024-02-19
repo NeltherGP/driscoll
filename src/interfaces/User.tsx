@@ -7,22 +7,28 @@ export interface User{
    * The first name of the user.
    * @type {string}
    */
-    FirstName: String,
+    FirstName: string,
     /**
     * The last name of the user.
     * @type {string}
     */
-    LastName: String,
+    LastName: string,
     /**
     * The email address of the user.
     * @type {string}
     */
-    Email: String,
+    Email: string,
     /**
-   * The creation date of the user.
-   * @type {string}
-   * 
-   */
-    Created: String
+    * The creation date of the user.
+    * @type {string}
+    * 
+    */
+    Created: string
+    /**
+    * The Id  of the user in the database.
+    * @type {string}
+    * 
+    */
+    _id: string
 
 }
