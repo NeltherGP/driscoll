@@ -5,9 +5,12 @@ import config from "../config";
 import { User } from "../interfaces/User";
 import { useDelete } from "../utils/useDelete";
 import fetchRequest from "../utils/fetch";
+import { useTranslation } from "react-i18next";
 
 
 const UserContent:React.FC = () =>{
+    const {t} = useTranslation(); 
+    
     const { userId } = useParams();
     const loadedUser = useLoaderData() as User;
 
@@ -32,10 +35,10 @@ const UserContent:React.FC = () =>{
             </div>
 
             {(loadedUser) ?
-            <><p>First Name: {loadedUser.FirstName}</p>
-             <p>Last Name: {loadedUser.LastName}</p>
-             <p>Email: {loadedUser.Email}</p>
-             <p>Created: {loadedUser.Created}</p></>
+            <><p>{t("FirstName")}: {loadedUser.FirstName}</p>
+             <p>{t("LastName")}: {loadedUser.LastName}</p>
+             <p>{t("Email")}: {loadedUser.Email}</p>
+             <p>{t("Created")}: {loadedUser.Created}</p></>
             : null
             }
     </>)

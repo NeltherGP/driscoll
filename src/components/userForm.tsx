@@ -2,10 +2,11 @@ import { Form, useParams } from "react-router-dom";
 import { getCurrentDate } from "../utils/tools";
 import { User } from "../interfaces/User";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const UserForm = ({userData}:{userData:User|null}) =>{
     
-
+    const {t} = useTranslation(); 
 
     const [formValues, setFormValues] = useState<User>({
         FirstName: userData ? userData.FirstName || "" : "",
@@ -23,18 +24,18 @@ const UserForm = ({userData}:{userData:User|null}) =>{
     return(
     
     <Form method="post">
-    <label htmlFor="FirstNameInput" className="form-label">First name:</label>
+    <label htmlFor="FirstNameInput" className="form-label">{t("FirstName")}:</label>
     <input type="text" className="form-control" id="FirstNameInput" name="FirstName" onChange={handleInputChange} value={formValues ? formValues.FirstName:""}/>
 
-    <label htmlFor="LastNameInput" className="form-label">Last name:</label>
+    <label htmlFor="LastNameInput" className="form-label">{t("LastName")}:</label>
     <input type="text" className="form-control" id="LastNameInput" name="LastName" onChange={handleInputChange} value={formValues ? formValues.LastName : ""}/>
 
-    <label htmlFor="EmailInput" className="form-label">Email:</label>
+    <label htmlFor="EmailInput" className="form-label">{t("Email")}:</label>
     <input type="email" className="form-control" id="EmailInput" name="Email" onChange={handleInputChange} value={formValues ? formValues.Email : ""} />
 
-    <label htmlFor="CreatedInput" className="form-label">Created:</label>
+    <label htmlFor="CreatedInput" className="form-label">{t("Created")}:</label>
     <input type="date" className="form-control" id="LastNameInput" name="Created" value={formValues ? formValues.Created : ""} disabled/>
-    <button type="submit" className="btn btn-primary mt-5">Save</button>
+    <button type="submit" className="btn btn-primary mt-5">{t("Save")}</button>
     </Form>)
 }
 

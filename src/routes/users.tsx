@@ -7,10 +7,12 @@ import {User} from "../interfaces/User";
 import config from '../config'
 import { Outlet,Link,useLoaderData } from "react-router-dom";
 import fetchRequest from "../utils/fetch";
+import { useTranslation } from "react-i18next";
 
 const Users:React.FC = () =>{
 
- 
+    const {t} = useTranslation(); 
+    
     const [usersData,setUserData] = useState<User[]>([]);
 
     const loadedUsers = useLoaderData() as User[];
@@ -38,7 +40,7 @@ const Users:React.FC = () =>{
     return(<>
            <div className="row mt-5">
            <div className="col-2">
-                <Link className="btn btn-primary" to={`/users/createUser`}><i className="bi bi-person-plus-fill"></i> New User</Link>
+                <Link className="btn btn-primary" to={`/users/createUser`}><i className="bi bi-person-plus-fill"></i>{t("NewUserBtn")}</Link>
             </div>
            </div>
            <div className="row ">
@@ -55,25 +57,27 @@ const Users:React.FC = () =>{
 }
 
 const UsersTable: React.FC<UserTable> = ({UserList})=>{
-
+    const {t} = useTranslation(); 
     return(<>
     <div className="table-responsive">
         <table className="table table-striped">
             <thead>
                 <tr>
                     <th>
-                        First Name
+                        {t("FirstName")}
                     </th>
                     <th>
-                        Last Name
+                        {t("LastName")}
                     </th>
                     <th>
-                        Email
+                        {t("Email")}
                     </th>
                     <th>
-                        Created
+                        {t("Created")}
                     </th>
-                    <th>Actions</th>
+                    <th>
+                        {t("Actions")}
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -99,7 +103,7 @@ const UserRow:React.FC<{UserInfo:User}>= ({UserInfo})=>{
                     <td>{UserInfo.LastName}</td>
                     <td>{UserInfo.Email}</td>
                     <td>{UserInfo.Created}</td>
-                    <td><Link to={`/users/${UserInfo._id}`}>View</Link></td>
+                    <td><Link to={`/users/${UserInfo._id}`} className="btn btn-sm btn-primary"><i className="bi bi-eye-fill"></i></Link></td>
                 </tr>)
 
     return Row;

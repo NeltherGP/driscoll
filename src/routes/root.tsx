@@ -1,7 +1,10 @@
 import React  from "react";
+import { useTranslation } from "react-i18next";
 import { Outlet,Link } from "react-router-dom";
+import LanguageControl from "../components/languageControl";
 
 const Root:React.FC =  ()=>{
+    const {t} = useTranslation();
     return (
       <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -14,9 +17,12 @@ const Root:React.FC =  ()=>{
                 </button>
                 <div className="collapse navbar-collapse" id="navigationBar">
                 <div className="navbar-nav">
-                    <Link className="nav-link active" aria-current="page" to={`/users`}>Users</Link>
-                    <Link className="nav-link active" aria-current="page" to={`/news/`}>News</Link>
+                    <Link className="nav-link active" aria-current="page" to={`/users`}>{t("usersNav")}</Link>
+                    <Link className="nav-link active" aria-current="page" to={`/news/`}>{t("newsNav")}</Link>
+                    <LanguageControl/>
+                    
                 </div>
+                
                 </div>
             </div>
         </nav>
